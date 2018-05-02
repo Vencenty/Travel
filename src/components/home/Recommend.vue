@@ -4,7 +4,7 @@
     <ul>
       <li 
         class="item border-bottom"
-        v-for="item in recommendList"
+        v-for="item in list"
         :key="item.id"
         >
         <img class="item-img" :src="item.imgUrl">
@@ -21,29 +21,8 @@
 <script>
   export default {
     name: "HomeRecommend",
-    data () {
-      return {
-        recommendList: [
-          {
-            id: '1001',
-            imgUrl: 'http://img1.qunarzz.com/sight/p0/1507/36/ce3d2d6c9ab44d67ae68d940b8781829.water.jpg_200x200_0938a8f2.jpg',
-            title: '北京野生动物园',
-            desc:'这里是北京动物园,这里是北京动物园,这里是北京动物园,'
-          },
-          {
-            id: '1002',
-            imgUrl: 'http://img1.qunarzz.com/sight/p0/1804/c8/c88bb5e69c9a9c5ea3.img.jpg_200x200_740720ff.jpg',
-            title: '古北水镇',
-            desc:'呵呵呵呵额呵呵'
-          },
-          {
-            id: '1003',
-            imgUrl: 'http://img1.qunarzz.com/sight/p0/1508/a5/4003f9dd7bebf61eccbf64046e26d487.water.jpg_200x200_7690e4cd.jpg',
-            title: '欢乐谷',
-            desc:'欢乐谷欢乐多好吧'
-          }
-        ]
-      } 
+    props: {
+      list: Array
     }
   }
 </script>

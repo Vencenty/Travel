@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide v-for="(page, index) in pages" :key="index">
         <div
           class="icon"
@@ -8,20 +8,11 @@
           :key="item.id"
         >
           <div class="icon-img">
-            <img class="icon-img-content" :src="item.iconUrl">
+            <img class="icon-img-content" :src="item.imgUrl">
           </div>
           <p class="icon-desc">{{ item.desc }}</p>
         </div>
       </swiper-slide>
-
-      <!-- <swiper-slide>
-        <div class="icon">
-          <div class="icon-img">
-            <img class="icon-img-content" src="http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png" alt="">
-          </div>
-          <p class="icon-desc">热门景点</p>
-        </div>
-      </swiper-slide> -->
     </swiper>
 
   </div>
@@ -30,70 +21,20 @@
 <script>
 export default {
   name: "HomeIcons",
-  data() {
+  props: {
+    list: Array
+  },
+  data () {
     return {
-      icons: [
-        {
-          id: "001",
-          desc: "景点门票",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
-        },
-        {
-          id: "002",
-          desc: "必游榜单",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png"
-        },
-        {
-          id: "003",
-          desc: "踏花赏春",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png"
-        },
-        {
-          id: "004",
-          desc: "一日游",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png"
-        },
-        {
-          id: "005",
-          desc: "动植物园",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/ee/5114069893722102.png"
-        },
-        {
-          id: "006",
-          desc: "故宫",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png"
-        },
-        {
-          id: "007",
-          desc: "古北水镇",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/96/c70f1e85ae4a4f02.png"
-        },
-        {
-          id: "008",
-          desc: "Q+精选",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png"
-        },
-        {
-          id: "009",
-          desc: "热门景点",
-          iconUrl:
-            "http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png"
-        }
-      ]
-    };
+      swiperOption: {
+        autoplay: false
+      }
+    }
   },
   computed: {
     pages () {
       const pages = []
-      this.icons.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const number = Math.floor(index / 8)
         if(!pages[number]) {
           pages[number] = []
