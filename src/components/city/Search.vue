@@ -16,8 +16,8 @@
     height .72rem
     padding 0 .1rem
     background $bgColor
-    box-sizing border-box
     .search-input
+      box-sizing border-box
       width 100%
       height .62rem
       line-height .62rem
