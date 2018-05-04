@@ -2,7 +2,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+// vue-router
 import router from './router' 
+// vuex
+import store from './store'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 import FastClick from 'fastclick'
@@ -18,9 +21,10 @@ Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 FastClick.attach(document.body)
 
-new Vue({
+let vm = new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
