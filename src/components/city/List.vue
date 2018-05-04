@@ -13,16 +13,27 @@
         <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item in hotCities" :key="item.id">
+          <div 
+            class="button-wrapper"
+            v-for="item in hotCities" 
+            :key="item.id"
+            >
             <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item, key) in cities" :key="key">
+      <div 
+        class="area"
+        v-for="(item, key) in cities" 
+        :key="key"
+        :ref="key"
+      >
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
           <div
-           class="item border-bottom" v-for="innerItem in item" :key="innerItem.id"
+            class="item border-bottom"
+            v-for="innerItem in item" 
+            :key="innerItem.id"
            >
             {{innerItem.name}}
            </div>
@@ -44,10 +55,19 @@
     name: 'cityList',
     props: {
       cities: Object,
-      hotCities: Array
+      hotCities: Array,
+      letter: String
     },
     mounted () {
       this.scroll = new BScroll(this.$refs.wrapper);
+    },
+    watch: {
+      letter () {
+        if (this.letter) {
+          let element = this.$refs[this.letter][0]
+          this.scroll.scrollToElement(element)
+        }
+      }
     }
   }
 </script>
