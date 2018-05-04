@@ -20,11 +20,6 @@
   import { mapState } from 'vuex'
   export default {
     name: "HomeHeader",
-    props: {
-      city: {
-        type: String
-      }
-    },
     computed: {
       ...mapState(['city'])
     }

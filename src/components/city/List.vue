@@ -49,7 +49,7 @@
 
 <script>
   import BScroll from 'better-scroll'
-  import { mapState } from 'vuex'
+  import { mapState, mapMutations } from 'vuex'
   
   export default {
     name: 'cityList',
@@ -65,9 +65,10 @@
     },
     methods: {
       handleCityClick (city) {
-        store.commit('changeCity', city)
-        router.push('/')
-      }
+        this.changeCity(city)
+        this.$router.push('/')
+      },
+      ...mapMutations(['changeCity'])
     },
     watch: {
       letter () {
@@ -78,7 +79,7 @@
       }
     },
     mounted () {
-      this.scroll = new BScroll(this.$refs.wrapper);
+      this.scroll = new BScroll(this.$refs.wrapper)
     },
   }
 </script>

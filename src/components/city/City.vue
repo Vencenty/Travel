@@ -25,6 +25,7 @@ import CitySearch from './Search'
 import CityHeader from './Header'
 import CityList from './List'
 import CityAlphabet from './Alphabet'
+import { mapState } from 'vuex'
 
 export default {
   name: 'City',
@@ -34,15 +35,26 @@ export default {
     CityList,
     CityAlphabet
   },
+  computed: {
+    ...mapState(['city'])
+  },
   data () {
     return {
       cities: {},
       hotCities: [],
       letter: '',
+      lastCity: '',
+
+    }
+  },
+  methods: {
+    change (letter) {
+      this.letter = letter
     }
   },
   mounted () {
-    axios.get('/api/city.json').then((response)=>{
+    console.log('挂在完成')
+    axios.get('/api/city.json?city=' + this.city).then((response)=>{
       response = response.data
       if(response.errno  === 0) {
         const data = response.data
@@ -51,9 +63,18 @@ export default {
       }
     })  
   },
-  methods: {
-    change (letter) {
-      this.letter = letter
+  activated () {
+    if(this.lastCity !== this.city) {
+      console.log(1)
+      this.lastCity = this.city
+      axios.get('/api/city.json?city=' + this.city).then((response)=>{
+        response = response.data
+        if(response.errno  === 0) {
+          const data = response.data
+          this.cities = data.cities
+          this.hotCities = data.hotCities
+        }
+      })  
     }
   }
 }
