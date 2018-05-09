@@ -8,6 +8,6 @@ Vue.use(Router)
 export default new Router({
   mode: 'history',
   // linkActiveClass: '',
-  routes: routes
+  routes: routes,
 })
 
