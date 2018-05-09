@@ -6,7 +6,6 @@ import routes from './routes'
 
 Vue.use(Router)
 export default new Router({
-  mode: 'history',
   // linkActiveClass: '',
   routes: routes,
   scrollBehavior(to, from, savedPosition) {

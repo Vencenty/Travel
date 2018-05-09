@@ -7,7 +7,10 @@ export default [
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      meta: {
+        title: '旅游网站demo'
+      }
     },
     {
       path: '/city',

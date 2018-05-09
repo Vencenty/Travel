@@ -11,6 +11,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import FastClick from 'fastclick'
 
 // 静态资源引入
+import 'babel-polyfill'
 import 'static/reset.css'
 import 'static/border.css'
 import 'static/iconfont.css'

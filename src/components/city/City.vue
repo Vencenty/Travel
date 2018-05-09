@@ -53,7 +53,6 @@ export default {
     }
   },
   mounted () {
-    console.log('挂在完成')
     axios.get('/api/city.json?city=' + this.city).then((response)=>{
       response = response.data
       if(response.errno  === 0) {
@@ -65,7 +64,6 @@ export default {
   },
   activated () {
     if(this.lastCity !== this.city) {
-      console.log(1)
       this.lastCity = this.city
       axios.get('/api/city.json?city=' + this.city).then((response)=>{
         response = response.data
