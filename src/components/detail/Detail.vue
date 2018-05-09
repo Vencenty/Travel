@@ -26,12 +26,12 @@ export default {
           title: '成人票',
           children: [
             {
-              title: '三馆联票',
+              title: '二馆联票',
               children: [
                 {
-                  title: '操操操',
+                  title: '三管联票',
                   children: [
-                    {title: '你是不是煞笔'}
+                    {title: '呵呵呵呵呵'}
                   ]
                 }
               ]
