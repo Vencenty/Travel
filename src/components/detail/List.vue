@@ -5,7 +5,7 @@
     v-for="(item, index) in list"
     :key="index"
   >
-    <div class="item-title">
+    <div class="item-title border-bottom">
       <span class="item-title-icon"></span>
       {{item.title}}
     </div>
@@ -26,7 +26,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-   .item-title-icon
+  .border-bottom 
+    border-bottom 1px solid #eee
+  .item-title-icon
     position: relative
     left: .06rem
     top: .06rem
