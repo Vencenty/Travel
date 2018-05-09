@@ -9,5 +9,8 @@ export default new Router({
   mode: 'history',
   // linkActiveClass: '',
   routes: routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
 
